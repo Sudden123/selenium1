@@ -48,10 +48,11 @@ public class StepDefinitions {
 	}
 
 	@Then("the result should be {int} on the screen")
-	public void the_result_should_be_on_the_screen(Integer int1) {
+	public void the_result_should_be_on_the_screen(Integer int1) throws InterruptedException {
+		Thread.sleep(3000);
 		WebElement answer = driver.findElement(By.name("answer"));
-		answer.getText();
-		assertEquals("100", answer.getText());
+		answer.getAttribute("value");
+		assertEquals("100", answer.getAttribute("value"));
 		driver.quit();
 	}
 
